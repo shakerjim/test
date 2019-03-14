@@ -1,0 +1,491 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  /* background: #239838 */
+}
+
+.el-header {
+  background-color: #239838;
+  color: #ffffff;
+  font-size: 20px;
+  line-height: 80px;
+  width: 100%;
+  /* display: flex; */
+  height: 80px !important;
+  padding: 0 55px 0 28px;
+  /* min-width: 1150px; */
+}
+
+.el-header .logopic {
+  width: 51px;
+  height: 51px;
+  border-radius: 30px;
+  background-color: #fff;
+  position: relative;
+  /* text-align: center; */
+  margin: 14px 0;
+  float: left;
+  cursor: pointer;
+}
+
+.el-header .logopic img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.el-header .systitle {
+  padding-left: 15px;
+  float: left
+}
+
+.el-header [class ^="el-icon-my"],
+.el-header [class *="el-icon-my"] {
+  font-size: 22px;
+  line-height: 80px;
+  float: right
+}
+
+.el-aside {
+  background-color: #fff;
+  color: #515151;
+  text-align: center;
+  height: 100%;
+  float: left;
+  overflow-x: hidden;
+  box-sizing: border-box;
+  text-align: center;
+  width: auto !important
+}
+
+.el-menu {
+  background-color: #fff;
+  text-align: left;
+  border-right: 0;
+}
+
+.el-aside [class ^="el-icon-my"],
+.el-aside [class *="el-icon-my"] {
+  font-size: 26px;
+}
+
+.el-aside .el-menu-item [class^="el-icon-"] {
+  margin-right: 28px;
+}
+
+.el-aside .el-menu-item {
+  padding-left: 0 !important;
+}
+
+.el-aside span.el-icon-caret-left {
+  position: absolute;
+  font-size: 44px;
+  right: 4px;
+  margin-right: 0 !important;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #fff;
+  display: none;
+}
+
+.el-aside a {
+  padding-left: 20px;
+  padding-right: 28px;
+  text-decoration: none;
+  color: #515151;
+  display: block;
+  font-size: 18px;
+}
+
+.el-menu li {
+  border-bottom: 1px solid #e7e8ea;
+}
+
+.el-menu-item i {
+  margin-top: -4px;
+}
+
+.el-menu-item.is-active a {
+  color: #239838;
+  border-bottom: 3px solid #239838;
+  font-weight: bold;
+  font-size: 20px
+}
+
+.el-aside .el-menu-item.is-active [class ^="el-icon-my"],
+.el-aside .el-menu-item.is-active [class *="el-icon-my"] {
+  font-size: 34px
+}
+
+.el-menu-item.is-active i.el-icon-arrow-right {
+  display: block;
+}
+
+.el-menu-item.is-active span.el-icon-caret-left {
+  color: #f4f8fc;
+  display: block;
+}
+
+.el-menu-item:focus a,
+.el-menu-item:focus i,
+.el-menu-item:hover a,
+.el-menu-item:hover i {
+  background-color: #239838;
+  color: #fff;
+}
+
+.el-menu-item:focus span.el-icon-caret-left,
+.el-menu-item:hover span.el-icon-caret-left {
+  color: #f4f8fc;
+  display: block;
+}
+
+.el-menu-item,
+.el-submenu__title {
+  height: 83px;
+  line-height: 83px;
+  padding: 0;
+}
+
+.el-submenu__title {
+  font-size: 18px;
+}
+
+.el-submenu [class^="el-icon-"] {
+  margin-right: 15px;
+}
+
+.el-submenu__title:hover,
+.el-submenu.is-opened .el-submenu__title {
+  background-color: #239838;
+  color: #fff;
+  font-weight: bold;
+  font-size: 21px
+}
+
+.el-submenu__title:hover i,
+.el-submenu.is-opened .el-submenu__title i {
+  color: #fff;
+  font-size: 34px
+}
+
+
+.el-submenu__title:hover span.el-icon-caret-left,
+.el-submenu.is-opened span.el-icon-caret-left {
+  display: block;
+}
+
+.el-submenu__icon-arrow {
+  display: none;
+}
+
+.el-submenu .el-menu-item {
+  height: 73px;
+  line-height: 73px;
+}
+
+.el-aside i.el-icon-arrow-right {
+  float: right;
+  margin-top: 26px;
+  display: none;
+}
+
+.el-menu-item-group__title {
+  padding: 0;
+}
+
+.el-menu-item-group .el-menu-item:focus a,
+.el-menu-item-group .el-menu-item:hover a {
+  background-color: #f9fbfd;
+  color: #239838;
+  border-bottom: 3px solid #239838;
+}
+
+.el-menu-item-group .el-menu-item:focus i.el-icon-arrow-right,
+.el-menu-item-group .el-menu-item:hover i.el-icon-arrow-right {
+  display: block;
+  color: #239838;
+  background: #f9fbfd;
+}
+
+.el-menu-item-group .el-menu-item {
+  padding: 0;
+}
+
+
+li.el-menu-item-group {
+  border-bottom: 0;
+}
+
+.el-menu-item-group ul .el-menu-item:nth-last-child(1) {
+  border-bottom: 0;
+}
+
+.mainbox {
+  width: 100%;
+  position: absolute;
+  top: 80px;
+  bottom: 0;
+}
+
+.el-main {
+  float: left;
+  height: 100%;
+  width: 100%;
+  background-color: #f4f8fc;
+  box-sizing: border-box;
+  overflow: scroll;
+  overflow-x: hidden;
+  text-align: center;
+  min-width: 1300px;
+}
+
+.el-menu-item-group .el-menu-item:hover i.el-icon-arrow-right {
+  display: inline;
+}
+
+.el-icon-my-tuichu:before {
+  cursor: pointer;
+}
+
+.el-table .cell,
+.el-table th div,
+.el-table--border td:first-child .cell,
+.el-table--border th:first-child .cell {
+  text-align: center;
+}
+
+.el-table td,
+.el-table th.is-leaf {
+  border-bottom: 0;
+}
+
+.el-table tr {
+  background: #f4f8fc;
+}
+
+.el-table::before {
+  height: 0;
+}
+
+.el-table--striped .el-table__body tr.el-table__row--striped td {
+  background: #fff;
+}
+
+.el-table--enable-row-hover .el-table__body tr:hover>td {
+  background: #f0f0f0;
+}
+
+.el-pagination {
+  background: #fff;
+  padding: 30px 15px;
+  text-align: right;
+}
+
+.el-pager li.active {
+  color: #239838
+}
+
+/* .el-button--primary {
+  color: #fff;
+  background-color: #239838;
+  border-color: #239838;
+} */
+
+/*滚动条整体部分,必须要设置*/
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+  background-color: #f4f8fc;
+}
+
+/*滚动条的轨道*/
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px rgba(0, 255, 0);
+  background-color: #f4f8fc;
+}
+
+/*滚动条的滑块按钮*/
+
+::-webkit-scrollbar-thumb {
+  /* border-radius: 10px; */
+  background-color: #239838;
+  box-shadow: inset 0 0 5px rgba(0, 255, 0, 0.6);
+}
+
+/*滚动条的上下两端的按钮*/
+
+/* ::-webkit-scrollbar-button {
+  height: 10px;
+  background-color: #f4f8fc;
+} */
+
+.green {
+  /* height: 40px; */
+  background: #249739;
+  color: #fff;
+  border: 1px solid #249739;
+}
+
+.blue {
+  /* height: 40px; */
+  background: #00a7ba;
+  color: #fff;
+  border: 1px solid #00a7ba;
+}
+
+.blue:focus,
+.blue:hover {
+  background: #22b9d1;
+  border-color: #22b9d1;
+  color: #fff;
+}
+
+.el-button--primary.is-disabled,
+.el-button--primary.is-disabled:active,
+.el-button--primary.is-disabled:focus,
+.el-button--primary.is-disabled:hover {
+  background-color: #a0d0dc;
+  border-color: #a0d0dc;
+  color: #fff;
+}
+
+.el-button--text {
+  color: #249739;
+}
+
+.el-button--text:focus,
+.el-button--text:hover {
+  color: #649739;
+}
+
+.tablelist {
+  padding: 0 3%;
+}
+
+.tablelist .title {
+  padding: 20px 0;
+  font-size: 14px;
+  text-align: left;
+  color: #414141;
+}
+
+.tablelist .title span {
+  color: #249739;
+}
+
+.tablebox {
+  background-color: #fff;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 2px #ccc;
+  border: 1px solid #fff;
+}
+
+.listbox {
+  padding: 20px 30px;
+  overflow: hidden;
+}
+
+.listword {
+  float: left;
+  color: #212121;
+  font: normal 24px "Microsoft YaHei";
+}
+
+.listbutton {
+  float: right;
+}
+
+.el-main {
+  padding: 0;
+}
+
+.main_top {
+  min-width: 700px;
+  height: 110px;
+  background-color: #fff;
+  border-left: 1px solid #ebeef5;
+  padding-left: 20px;
+}
+
+.main_left {
+  float: left;
+  margin-top: 31px;
+}
+
+.main_left .el-input {
+  float: left;
+  width: 480px;
+  font-size: 16px;
+  color: #7b7f7f;
+}
+
+.main_left .el-input__inner {
+  height: 48px;
+  background-color: #f4f7fc;
+}
+
+.main_left .searchbutton {
+  float: left;
+  height: 48px;
+  padding: 12px;
+  font-size: 24px;
+}
+
+.el-icon-my-xiazai1,
+.el-icon-my-weibiaoti40,
+.el-icon-my-shaixuan {
+  font-size: 14px
+}
+
+/* tab */
+
+.businessInfo.el-tabs--border-card {
+  margin: 30px 0;
+  border: 0;
+}
+
+.businessInfo.el-tabs--border-card>.el-tabs__header .el-tabs__item.is-active {
+  color: #fff;
+  background-color: #249739;
+}
+
+.businessInfo.el-tabs--border-card>.el-tabs__header {
+  background-color: #fff;
+  border: 0;
+}
+
+.businessInfo.el-tabs--border-card>.el-tabs__header .el-tabs__item {
+  border: 0;
+  border-right: 1px solid #f4f8fc;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.businessInfo .el-tabs__item {
+  height: 58px;
+  box-sizing: border-box;
+  padding: 10px 30px !important;
+  font-size: 18px;
+}
+
+.businessInfo.el-tabs--border-card>.el-tabs__header .el-tabs__item:hover {
+  color: #fff;
+  background-color: #249739;
+}
+
+.sellerName {
+  float: right;
+  font-size: 16px;
+  margin: 0 40px 0 20px
+}
+
+i.el-input__icon.el-icon-edit {
+  cursor: pointer
+}
