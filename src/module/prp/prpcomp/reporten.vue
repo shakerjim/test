@@ -1,0 +1,385 @@
+<template>
+  <div>
+    <div class="matchreport" :style="backgroundDiv">
+      <div class="main clearfix">
+        <!-- <div class="main_txt"> -->
+        <div class="job_brief ">
+          <div class="name">
+            <span>Name</span>
+            <span>/</span>
+            <span>{{userform.name}}</span>
+          </div>
+          <div class="position clearfix">
+            <span>Current Position</span>
+            <span>/</span>
+            <span>{{userform.currentPosts}}</span>
+          </div>
+        </div>
+        <div class="line">
+          <div></div>
+        </div>
+        <div class="evaposition" v-if="userform.evaluationPosts">
+          <span>Job Requirement for</span>
+          <span>:</span>
+          <span>{{userform.evaluationPosts}}</span>
+          <!-- </div> -->
+        </div>
+      </div>
+
+    </div>
+
+    <div class="matchreport_con" v-if="!(reportpart1.length==0&&reportpart2.length==0)">
+      <header>
+        <img src="../image/header.png" alt="header">
+      </header>
+      <div class="container clearfix">
+        <!-- 第一部分 -->
+        <div class="part1 clearfix" v-if="reportpart1.length!=0">
+          <span>Part.1</span>
+          <span>Job Requirement</span>
+        </div>
+        <!-- 块 -->
+        <div class="section" v-if="reportpart1" v-for="(item,index) in reportpart1" :key="item.id">
+          <div class="outicon">
+            <div class="innericon">{{index+1}}</div>
+          </div>
+          <div class="outcontent">
+            <div class="title">
+              <div>{{item.content4En}}</div>
+              <div class="ratebar">
+                <el-rate v-if="key==item.id" v-for="(value, key) in bardata" :key="key" :value="value>5?value-5:0" disabled-void-color="#f0f0f0" :icon-classes="['el-icon-my-square', 'el-icon-my-square', 'el-icon-my-square']" disabled-void-icon-class="el-icon-my-square" void-icon-class="el-icon-my-square" :max="5" disabled :colors="['#39d255', '#39d255', '#39d255']">
+                </el-rate>
+                <el-rate v-if="key==item.id" v-for="(value, key, index) in bardata" :key="index" :value="value>5?5:value" disabled-void-color="#f0f0f0" :icon-classes="['el-icon-my-square', 'el-icon-my-square', 'el-icon-my-square']" disabled-void-icon-class="el-icon-my-square" void-icon-class="el-icon-my-square" :max="5" disabled :colors="['#f0f0f0', '#00cece', '#00cece']">
+                </el-rate>
+              </div>
+            </div>
+            <div class="positionneed">
+              {{item.content2En}}
+            </div>
+
+          </div>
+        </div>
+        <!-- 第二部分 -->
+        <div class="part2 clearfix" v-if="reportpart2.length!=0">
+          <span>Part.{{reportpart1?2:1}}</span>
+          <span>Critical Ability for Job</span>
+        </div>
+        <!-- 块 -->
+        <div class="section" v-if="reportpart2" v-for="(item,index) in reportpart2" :key="item.id">
+          <div class="outicon">
+            <div class="innericon">{{index+1}}</div>
+          </div>
+          <div class="outcontent">
+            <div class="title">
+              <span>{{item.content3En}}</span>
+            </div>
+            <div class="positionneed">
+              {{item.content4En}}
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="page">
+        <div>
+          <span>Page</span>
+          <span>1</span>
+          <span>/1</span>
+        </div>
+      </div>
+      <footer>
+        <div class="footer_l"></div>
+        <div class="footer_r"></div>
+      </footer>
+    </div>
+  </div>
+</template>
+<script>
+export default {
+  props: ["userform", "reportpart1", "reportpart2", "reportpart3", "bardata"],
+  data() {
+    return {
+      backgroundDiv: {
+        backgroundImage: 'url(' + require('../image/NEW_01.png') + ')',
+      }
+    }
+  }
+};
+</script> 
+<style scoped>
+.clearfix:before,
+.clearfix:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.clearfix {
+  zoom: 1;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.matchreport {
+  width: 100%;
+  max-width: 1356px;
+  height: 1755px;
+  overflow: hidden;
+  text-align: left;
+  margin: 0 auto 30px auto;
+  background-repeat: no-repeat;
+  /*background: url("../../../../static/New_01.png") no-repeat;*/
+  background-size: contain;
+}
+
+.matchreport img,
+.matchreport_con img {
+  width: 100%;
+  vertical-align: middle;
+}
+
+footer {
+  overflow: hidden;
+}
+
+.footer_l {
+  width: 26%;
+  height: 14px;
+  background-color: #00cece;
+  float: left;
+}
+
+.footer_r {
+  width: 74%;
+  height: 14px;
+  background-color: #19a950;
+  float: left;
+}
+
+.main {
+  width: 100%;
+  position: relative;
+}
+
+
+
+
+/* {
+  width: 584px;
+  height: 788px;
+  float: right;
+  position: relative;
+} */
+
+
+/* .job_brief {
+  font: 700 26px/38px "Microsoft YaHei";
+  color: #373737;
+  float: left;
+  width: 100%;
+  margin-top: 226px;
+} */
+
+.job_brief {
+  font: 700 44px "Microsoft YaHei";
+  color: #373737;
+  float: left;
+  width: 100%;
+  margin: 750px 0 0 0;
+  padding-left: 360px;
+  box-sizing: border-box;
+}
+
+.job_brief .position span {
+  float: left;
+}
+
+.job_brief .position span:nth-child(1) {
+  width: 38%;
+  min-width: 380px;
+}
+
+.job_brief .position span:nth-child(2) {
+  width: 3%;
+  text-align: center;
+}
+
+.line {
+  width: 100%;
+  float: left;
+  margin: 40px 0 30px 0;
+  padding-left: 360px;
+  box-sizing: border-box;
+}
+
+.line div {
+  width: 120px;
+  height: 10px;
+  background-color: #19a950;
+}
+
+.evaposition {
+  font: 700 70px "Microsoft YaHei";
+  color: #00afb1;
+  float: left;
+  width: 100%;
+  padding-left: 360px;
+  box-sizing: border-box;
+}
+
+.evaposition span {
+  float: left;
+}
+
+.evaposition span:nth-child(1) {
+  width: 75%;
+  min-width: 747px;
+}
+
+.evaposition span:nth-child(2) {
+  width: 3%;
+  text-align: center;
+}
+
+
+
+
+/* .evaposition span:nth-child(3){*/
+
+
+/*width: 100%;*/
+
+
+/*}*/
+
+.matchreport_con {
+  width: 100%;
+  max-width: 1356px;
+  background-color: #fff;
+  text-align: left;
+  margin: 0 auto;
+}
+
+.container {
+  margin: 47px 0 108px 230px;
+  border-left: 10px solid #d9d9d9;
+  padding-right: 118px;
+  box-sizing: border-box;
+}
+
+.container .part1,
+.container .part2 {
+  margin-bottom: 70px;
+  margin-top: 50px;
+}
+
+.container .part1 span:nth-child(1),
+.container .part2 span:nth-child(1) {
+  /* width: 90px; */
+  border-radius: 3px 36px 36px 3px;
+  background-color: #efefef;
+  font: 700 50px "Microsoft YaHei";
+  color: #373737;
+  padding: 6px 32px;
+  float: left;
+}
+
+.container .part1 span:nth-child(2),
+.container .part2 span:nth-child(2) {
+  font: 700 50px "Microsoft YaHei";
+  color: #373737;
+  margin-left: 44px;
+  float: left;
+}
+
+.outicon {
+  margin-left: -57px;
+  float: left;
+}
+
+.innericon {
+  border: 12px solid #fff;
+  width: 78px;
+  height: 78px;
+  font: 700 42px/78px "Microsoft YaHei";
+  color: #fff;
+  text-align: center;
+  border-radius: 50%;
+  background-color: #1ea3c5;
+}
+
+.outcontent {
+  margin-left: 68px;
+  padding-bottom: 20px;
+}
+
+.outcontent .title {
+  overflow: hidden;
+  padding: 20px 0 30px 0;
+  border-bottom: 2px dotted #a8a8a8;
+  font: 36px "Microsoft YaHei";
+}
+
+.outcontent .title>div:nth-child(1) {
+  float: left;
+  color: #383838;
+  text-align: left;
+  width: 100%;
+}
+
+.outcontent .title>div:nth-child(2),
+.outcontent .title>div:nth-child(3) {
+  padding: 2px 0;
+  height: 100%;
+  box-sizing: border-box;
+  float: left;
+  width: 26%;
+}
+
+.positionneed {
+  font: 27px/32px "Microsoft YaHei";
+  color: #1d1d1d;
+  margin: 25px 0 0 0;
+}
+
+.page {
+  position: relative;
+  padding-right: 118px;
+  font: 700 30px "Microsoft YaHei";
+  color: #19a94f;
+}
+
+.page div {
+  position: absolute;
+  right: 0;
+  bottom: 20px;
+}
+
+.section {
+  page-break-inside: avoid;
+}
+
+.ratebar {
+  position: relative;
+  margin: 20px 0 40px 0;
+}
+
+div {
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+  word-wrap: break-word;
+}
+
+.ratebar .el-rate:nth-child(1) {
+  left: 50%;
+}
+
+.ratebar .el-rate:nth-child(2) {
+  left: 0;
+}
+</style>
